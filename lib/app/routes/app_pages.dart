@@ -1,5 +1,7 @@
 import 'package:get/get.dart';
 
+import '../modules/admindashboard/bindings/admindashboard_binding.dart';
+import '../modules/admindashboard/views/admindashboard_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgotscreen/bindings/forgotscreen_binding.dart';
@@ -16,6 +18,8 @@ import '../modules/signupscreen/bindings/signupscreen_binding.dart';
 import '../modules/signupscreen/views/signupscreen_view.dart';
 import '../modules/splashscreen/bindings/splashscreen_binding.dart';
 import '../modules/splashscreen/views/splashscreen_view.dart';
+import '../modules/teacherDashboard/bindings/teacher_dashboard_binding.dart';
+import '../modules/teacherDashboard/views/teacher_dashboard_view.dart';
 
 part 'app_routes.dart';
 
@@ -62,8 +66,18 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILESCREEN,
-      page: () => const ProfilescreenView(),
+      page: () =>  ProfilescreenView(),
       binding: ProfilescreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADMINDASHBOARD,
+      page: () =>  AdmindashboardView(),
+      binding: AdmindashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.TEACHER_DASHBOARD,
+      page: () =>  TeacherDashboardView(),
+      binding: TeacherDashboardBinding(),
     ),
   ];
 }

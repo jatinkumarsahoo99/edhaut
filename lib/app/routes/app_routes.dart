@@ -11,6 +11,8 @@ abstract class Routes {
   static const RESETPASSWORD = _Paths.RESETPASSWORD;
   static const DASHBOARD = _Paths.DASHBOARD;
   static const PROFILESCREEN = _Paths.PROFILESCREEN;
+  static const ADMINDASHBOARD = _Paths.ADMINDASHBOARD;
+  static const TEACHER_DASHBOARD = _Paths.TEACHER_DASHBOARD;
 }
 
 abstract class _Paths {
@@ -23,4 +25,6 @@ abstract class _Paths {
   static const RESETPASSWORD = '/resetpassword';
   static const DASHBOARD = '/dashboard';
   static const PROFILESCREEN = '/profilescreen';
+  static const ADMINDASHBOARD = '/admindashboard';
+  static const TEACHER_DASHBOARD = '/teacher-dashboard';
 }

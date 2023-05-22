@@ -9,6 +9,12 @@ class Const {
   static const String NETWORK_ISSUE = "Network issue";
   static const String CODE = "code";
   static const String SELECT_MODE = "mode";
+  static String LOGIN_DATA = "loginResponse";
+  static String TAX_DECLARATION = "taxDeclaration";
+  static String MASTER_RESPONSE = "masterData";
+  static String LOGIN_phoneno = 'phoneno';
+  static String LOGIN_password = 'password';
+  static String IS_LOGIN = "IS_LOGIN";
 
 
 

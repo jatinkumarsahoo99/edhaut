@@ -13,114 +13,116 @@ class LoginscreenView extends GetView<LoginscreenController> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFFECFAF),
-      body:  Container(
-        width: MediaQuery.of(context).size.width,
-        height: MediaQuery.of(context).size.height,
-        child: Column(
-          children: [
-            SizedBox(
-              height: 10,
-            ),
-            Container(
-              width: MediaQuery.of(context).size.width,
-              height: MediaQuery.of(context).size.height * 0.4,
-              child: Image.asset('assets/study.jpg', fit: BoxFit.fill),
-            ),
-            Expanded(
-              child: Container(
+      body:  SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          height: MediaQuery.of(context).size.height,
+          child: Column(
+            children: [
+              SizedBox(
+                height: 10,
+              ),
+              Container(
                 width: MediaQuery.of(context).size.width,
-                color: Color(0xFFfff0d9),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
-                      child: formFieldemail("Email", Icons.email_outlined),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
-                      child: formFieldPassword("Password", Icons.lock_outlined),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 13.0,right: 13.0,bottom: 8,top: 8),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Row(
-                            children: [
-                              Checkbox(value: true, onChanged: (value){
-
-                              }),
-                              Container(
-                                child: Text("Remember Password",style: TextStyle(color: Colors.blue,fontSize: 13)),
-                              ),
-                            ],
-                          ),
-                          InkWell(
-                            onTap: (){
-                              Get.toNamed(Routes.FORGOTSCREEN);
-                            },
-                            child: Container(
-                              child: Text("Forgot Password",style: TextStyle(color: Colors.blue,fontSize: 13)),
-                            ),
-                          )
-                        ],
+                height: MediaQuery.of(context).size.height * 0.4,
+                child: Image.asset('assets/study.jpg', fit: BoxFit.fill),
+              ),
+              Expanded(
+                child: Container(
+                  width: MediaQuery.of(context).size.width,
+                  color: Color(0xFFfff0d9),
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
+                        child: formFieldemail("Email", Icons.email_outlined,0),
                       ),
-                    ),
-                    ElevatedButton(
-                      onPressed: () {
-                        Get.toNamed(Routes.DASHBOARD);
-                      },
-                      style: ButtonStyle(
-                        shape: MaterialStateProperty.all(
-                          RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(50.0),
-                            side: BorderSide(width: 1, color: Colors.blueAccent),
-                          ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
+                        child: formFieldPassword("Password", Icons.lock_outlined,1),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 13.0,right: 13.0,bottom: 8,top: 8),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Row(
+                              children: [
+                                Checkbox(value: true, onChanged: (value){
+
+                                }),
+                                Container(
+                                  child: Text("Remember Password",style: TextStyle(color: Colors.blue,fontSize: 13)),
+                                ),
+                              ],
+                            ),
+                            InkWell(
+                              onTap: (){
+                                Get.toNamed(Routes.FORGOTSCREEN);
+                              },
+                              child: Container(
+                                child: Text("Forgot Password",style: TextStyle(color: Colors.blue,fontSize: 13)),
+                              ),
+                            )
+                          ],
                         ),
                       ),
-                      child: Container(
-                          width: MediaQuery.of(context).size.width*0.7,
-                          child: Padding(
-                            padding: const EdgeInsets.all(12.0),
-                            child: Center(child: Text('Login',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),)),
-                          )),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Container(
-                            child: Text("Don't Have an Account?",style: TextStyle(color: Colors.blue,fontSize: 14)),
-                          ),
-                          InkWell(
-                            onTap: (){
-                              Get.toNamed(Routes.SIGNUPSCREEN);
-                            },
-                            child: Container(
-                              child: Text("Sign Up",style: TextStyle(color: Colors.blue,fontSize: 14)),
+                      ElevatedButton(
+                        onPressed: () {
+                          controller.validate();
+                        },
+                        style: ButtonStyle(
+                          shape: MaterialStateProperty.all(
+                            RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(50.0),
+                              side: BorderSide(width: 1, color: Colors.blueAccent),
                             ),
                           ),
-                        ],
+                        ),
+                        child: Container(
+                            width: MediaQuery.of(context).size.width*0.7,
+                            child: Padding(
+                              padding: const EdgeInsets.all(12.0),
+                              child: Center(child: Text('Login',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),)),
+                            )),
                       ),
-                    )
-                  ],
+                      Padding(
+                        padding: const EdgeInsets.all(15.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Container(
+                              child: Text("Don't Have an Account?",style: TextStyle(color: Colors.blue,fontSize: 14)),
+                            ),
+                            InkWell(
+                              onTap: (){
+                                Get.toNamed(Routes.SIGNUPSCREEN);
+                              },
+                              child: Container(
+                                child: Text("Sign Up",style: TextStyle(color: Colors.blue,fontSize: 14)),
+                              ),
+                            ),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
     );
   }
 
-  Widget formFieldemail(String hint, IconData icons) {
+  Widget formFieldemail(String hint, IconData icons,int i) {
     return TextFormField(
       style: TextStyle(fontSize: AppData.hinttextSize),
       autofocus: false,
       // enabled: enable,
-      // controller:controller.userNameController,
+      controller:controller.textEditingController[i],
       textCapitalization: TextCapitalization.sentences,
       keyboardType: TextInputType.text,
       /*  inputFormatters: [
@@ -172,12 +174,12 @@ class LoginscreenView extends GetView<LoginscreenController> {
     );
   }
 
-  Widget formFieldPassword(String hint, IconData icons) {
+  Widget formFieldPassword(String hint, IconData icons, int i) {
     return TextFormField(
       style: TextStyle(fontSize: AppData.hinttextSize),
       autofocus: false,
       // enabled: enable,
-      // controller:controller.userNameController,
+      controller:controller.textEditingController[i],
       textCapitalization: TextCapitalization.sentences,
       keyboardType: TextInputType.text,
       inputFormatters: [

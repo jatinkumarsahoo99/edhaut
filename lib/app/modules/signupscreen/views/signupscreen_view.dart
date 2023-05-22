@@ -37,19 +37,19 @@ class SignupscreenView extends GetView<SignupscreenController> {
                       children: [
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
-                          child: formField1("Username", Icons.account_circle_outlined),
+                          child: formField1("Username", Icons.account_circle_outlined,0),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
-                          child: formFieldemail("Email", Icons.email_outlined),
+                          child: formFieldemail("Email", Icons.email_outlined,1),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
-                          child: formFieldPassword("Password", Icons.lock_outlined),
+                          child: formFieldPassword("Password", Icons.lock_outlined,2),
                         ),
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
-                          child: formFieldPassword("Confirm Password", Icons.lock_outlined),
+                          child: formFieldPassword("Confirm Password", Icons.lock_outlined,3),
                         ),
                         Padding(
                           padding: const EdgeInsets.all(8.0),
@@ -66,7 +66,8 @@ class SignupscreenView extends GetView<SignupscreenController> {
                         ),
                         ElevatedButton(
                           onPressed: () {
-                            Get.toNamed(Routes.LOGINSCREEN);
+                            // Get.toNamed(Routes.LOGINSCREEN);
+                            controller.validateField();
                           },
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all(
@@ -80,7 +81,8 @@ class SignupscreenView extends GetView<SignupscreenController> {
                               width: MediaQuery.of(context).size.width*0.7,
                               child: Padding(
                                 padding: const EdgeInsets.all(12.0),
-                                child: Center(child: Text('Sign Up',style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),)),
+                                child: Center(child: Text('Sign Up',
+                                  style: TextStyle(fontSize: 17,fontWeight: FontWeight.bold),)),
                               )),
                         )
                       ],
@@ -93,12 +95,12 @@ class SignupscreenView extends GetView<SignupscreenController> {
         ));
   }
 
-  Widget formField1(String hint, IconData icons) {
+  Widget formField1(String hint, IconData icons, int i) {
     return TextFormField(
       style: TextStyle(fontSize: AppData.hinttextSize),
       autofocus: false,
       // enabled: enable,
-      // controller:controller.userNameController,
+      controller:controller.textEditingController[i],
       textCapitalization: TextCapitalization.sentences,
       keyboardType: TextInputType.text,
       inputFormatters: [
@@ -149,12 +151,12 @@ class SignupscreenView extends GetView<SignupscreenController> {
       ),
     );
   }
-  Widget formFieldemail(String hint, IconData icons) {
+  Widget formFieldemail(String hint, IconData icons, int i) {
     return TextFormField(
       style: TextStyle(fontSize: AppData.hinttextSize),
       autofocus: false,
       // enabled: enable,
-      // controller:controller.userNameController,
+      controller:controller.textEditingController[i],
       textCapitalization: TextCapitalization.sentences,
       keyboardType: TextInputType.text,
     /*  inputFormatters: [
@@ -206,12 +208,12 @@ class SignupscreenView extends GetView<SignupscreenController> {
     );
   }
 
-  Widget formFieldPassword(String hint, IconData icons) {
+  Widget formFieldPassword(String hint, IconData icons, int i) {
     return TextFormField(
       style: TextStyle(fontSize: AppData.hinttextSize),
       autofocus: false,
       // enabled: enable,
-      // controller:controller.userNameController,
+      controller:controller.textEditingController[i],
       textCapitalization: TextCapitalization.sentences,
       keyboardType: TextInputType.text,
       inputFormatters: [

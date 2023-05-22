@@ -81,12 +81,14 @@ class DashboardView extends GetView<DashboardController> {
 
                   // Navigator.pushNamed(context, "/profileMepage");
                   break;
-                case 2:
+                case 3:
                   print('Navigate to profile');
+                  controller.logout();
+
                   // Get.toNamed(Routes.PROFILE_SCREEN);
                   // Navigator.pushNamed(context, "/referralProgram");
                   break;
-                case 3:
+                case 2:
                   print('Navigate to profile');
                   Get.toNamed(Routes.PROFILESCREEN);
                   // Navigator.pushNamed(context, "/referralProgram");
@@ -106,16 +108,16 @@ class DashboardView extends GetView<DashboardController> {
                 // backgroundColor: AppData.orangeColor
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.menu_book),
-                label: 'Categories',
-              ),
-              BottomNavigationBarItem(
                 icon: Icon(Icons.notifications_on),
                 label: 'Test',
               ),
               BottomNavigationBarItem(
                 icon: Icon(Icons.person),
                 label: 'Profile',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.logout),
+                label: 'Log out',
               ),
             ],
           ),

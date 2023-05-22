@@ -5,12 +5,10 @@ import '../../../data/SharedPref.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/MyWidget.dart';
 
-class DashboardController extends GetxController {
-  //TODO: Implement DashboardController
-
-  final count = 0.obs;
+class AdmindashboardController extends GetxController {
+  //TODO: Implement AdmindashboardController
   SharedPref sharedPref = SharedPref();
-  List<String> header = ['All','CBSE','ICSE','HSCE/CHSE'];
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
