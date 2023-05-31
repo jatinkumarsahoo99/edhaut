@@ -13,6 +13,8 @@ abstract class Routes {
   static const PROFILESCREEN = _Paths.PROFILESCREEN;
   static const ADMINDASHBOARD = _Paths.ADMINDASHBOARD;
   static const TEACHER_DASHBOARD = _Paths.TEACHER_DASHBOARD;
+  static const STUDENTSIGNUPSCREEN = _Paths.STUDENTSIGNUPSCREEN;
+  static const GROUPCHATSCREEN = _Paths.GROUPCHATSCREEN;
 }
 
 abstract class _Paths {
@@ -27,4 +29,6 @@ abstract class _Paths {
   static const PROFILESCREEN = '/profilescreen';
   static const ADMINDASHBOARD = '/admindashboard';
   static const TEACHER_DASHBOARD = '/teacher-dashboard';
+  static const STUDENTSIGNUPSCREEN = '/studentsignupscreen';
+  static const GROUPCHATSCREEN = '/groupchatscreen';
 }

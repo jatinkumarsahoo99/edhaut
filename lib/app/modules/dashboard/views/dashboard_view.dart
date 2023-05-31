@@ -76,7 +76,7 @@ class DashboardView extends GetView<DashboardController> {
                 case 1:
                   print('Navigate to sync');
                   // Get.toNamed(Routes.MYCART);
-
+                  Get.toNamed(Routes.GROUPCHATSCREEN);
                   // ServerCommunicate.updateFromServer(false, widget.model);
 
                   // Navigator.pushNamed(context, "/profileMepage");
@@ -108,7 +108,7 @@ class DashboardView extends GetView<DashboardController> {
                 // backgroundColor: AppData.orangeColor
               ),
               BottomNavigationBarItem(
-                icon: Icon(Icons.notifications_on),
+                icon: Icon(Icons.chat),
                 label: 'Test',
               ),
               BottomNavigationBarItem(

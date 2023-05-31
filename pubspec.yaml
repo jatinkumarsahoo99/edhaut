@@ -15,6 +15,9 @@ dependencies:
   carousel_slider:
   font_awesome_flutter:
   rflutter_alert:
+  dropdown_search:
+  socket_io_client:
+  uuid:
   flutter: 
     sdk: flutter
 

@@ -8,10 +8,11 @@ import '../../../data/SharedPref.dart';
 import '../../../routes/app_pages.dart';
 import '../../../widgets/Snack.dart';
 import '../../loginscreen/LoginResponseModel.dart';
+import '../../loginscreen/NewLoginResponseModel.dart';
 
 class SplashscreenController extends GetxController {
   //TODO: Implement SplashscreenController
-  LoginResponseModel? loginResponseModel;
+  NewLoginResponseModel? loginResponseModel;
   SharedPref sharedPref = SharedPref();
   var login;
   final count = 0.obs;
@@ -47,13 +48,13 @@ class SplashscreenController extends GetxController {
     // loginResponseModel = await sharedPref.getKey(Const.LOGIN_DATA);
     if (login != null && login.replaceAll("\"", "") == "true") {
 
-      loginResponseModel = LoginResponseModel.fromJson(jsonDecode( await sharedPref.getKey(Const.LOGIN_DATA)));
+      loginResponseModel = NewLoginResponseModel.fromJson(jsonDecode( await sharedPref.getKey(Const.LOGIN_DATA)));
 
-      if(loginResponseModel!.body!.userRole == "rol001"){
+      if(loginResponseModel!.body![0].role == "rol001"){
         Get.offAllNamed(Routes.DASHBOARD);
-      }else if(loginResponseModel!.body!.userRole == "rol002"){
+      }else if(loginResponseModel!.body![0].role== "rol002"){
         Get.offAllNamed(Routes.TEACHER_DASHBOARD);
-      }else if(loginResponseModel!.body!.userRole == "rol003"){
+      }else if(loginResponseModel!.body![0].role == "rol003"){
         Get.offAllNamed(Routes.ADMINDASHBOARD);
       }else{
         Get.toNamed(Routes.LOGINSCREEN);

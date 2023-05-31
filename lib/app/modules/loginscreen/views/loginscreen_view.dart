@@ -97,7 +97,8 @@ class LoginscreenView extends GetView<LoginscreenController> {
                             ),
                             InkWell(
                               onTap: (){
-                                Get.toNamed(Routes.SIGNUPSCREEN);
+                                // Get.toNamed(Routes.GROUPCHATSCREEN);
+                                controller.showPopup();
                               },
                               child: Container(
                                 child: Text("Sign Up",style: TextStyle(color: Colors.blue,fontSize: 14)),

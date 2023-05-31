@@ -6,6 +6,8 @@ import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgotscreen/bindings/forgotscreen_binding.dart';
 import '../modules/forgotscreen/views/forgotscreen_view.dart';
+import '../modules/groupchatscreen/bindings/groupchatscreen_binding.dart';
+import '../modules/groupchatscreen/views/groupchatscreen_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/loginscreen/bindings/loginscreen_binding.dart';
@@ -18,6 +20,8 @@ import '../modules/signupscreen/bindings/signupscreen_binding.dart';
 import '../modules/signupscreen/views/signupscreen_view.dart';
 import '../modules/splashscreen/bindings/splashscreen_binding.dart';
 import '../modules/splashscreen/views/splashscreen_view.dart';
+import '../modules/studentsignupscreen/bindings/studentsignupscreen_binding.dart';
+import '../modules/studentsignupscreen/views/studentsignupscreen_view.dart';
 import '../modules/teacherDashboard/bindings/teacher_dashboard_binding.dart';
 import '../modules/teacherDashboard/views/teacher_dashboard_view.dart';
 
@@ -66,18 +70,28 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.PROFILESCREEN,
-      page: () =>  ProfilescreenView(),
+      page: () => ProfilescreenView(),
       binding: ProfilescreenBinding(),
     ),
     GetPage(
       name: _Paths.ADMINDASHBOARD,
-      page: () =>  AdmindashboardView(),
+      page: () => AdmindashboardView(),
       binding: AdmindashboardBinding(),
     ),
     GetPage(
       name: _Paths.TEACHER_DASHBOARD,
-      page: () =>  TeacherDashboardView(),
+      page: () => TeacherDashboardView(),
       binding: TeacherDashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.STUDENTSIGNUPSCREEN,
+      page: () => StudentsignupscreenView(),
+      binding: StudentsignupscreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.GROUPCHATSCREEN,
+      page: () =>  GroupchatscreenView(),
+      binding: GroupchatscreenBinding(),
     ),
   ];
 }
