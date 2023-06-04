@@ -25,7 +25,7 @@ class GroupchatscreenController extends GetxController {
   IO.Socket? socket;
   void connect() {
 
-    socket = IO.io("http://192.168.1.15:3000", <String, dynamic>{
+    socket = IO.io( ApiFactory.BASEURL2??  "http://192.168.0.162:3000", <String, dynamic>{
       "transports": ["websocket"],
       "autoConnect": false
     });
@@ -149,6 +149,7 @@ class GroupchatscreenController extends GetxController {
 
   @override
   void onClose() {
+    socket!.close();
     super.onClose();
   }
 

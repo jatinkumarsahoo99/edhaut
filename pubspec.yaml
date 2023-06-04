@@ -17,6 +17,10 @@ dependencies:
   rflutter_alert:
   dropdown_search:
   socket_io_client:
+  flutter_spinkit:
+  flutter_animated_button:
+  lottie:
+  intl:
   uuid:
   flutter: 
     sdk: flutter

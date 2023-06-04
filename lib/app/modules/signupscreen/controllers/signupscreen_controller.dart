@@ -50,7 +50,7 @@ class SignupscreenController extends GetxController {
     }else{
       MyWidgets.showLoading3();
       Map<String,String> postData = {
-        "studentName":textEditingController[0].text,
+        "teacherName":textEditingController[0].text,
         "email":textEditingController[1].text,
         "password":textEditingController[2].text
       };

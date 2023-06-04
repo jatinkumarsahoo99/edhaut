@@ -109,6 +109,13 @@ class AppData {
       dev.log('Could not launch ' + url);
     }
   }
+  static launchURL1(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url,forceSafariVC: false, forceWebView: false);
+    } else {
+      dev.log('Could not launch ' + url);
+    }
+  }
 
 
 

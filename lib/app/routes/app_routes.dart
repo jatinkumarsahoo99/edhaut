@@ -15,6 +15,12 @@ abstract class Routes {
   static const TEACHER_DASHBOARD = _Paths.TEACHER_DASHBOARD;
   static const STUDENTSIGNUPSCREEN = _Paths.STUDENTSIGNUPSCREEN;
   static const GROUPCHATSCREEN = _Paths.GROUPCHATSCREEN;
+  static const ADD_TESTSCREEN = _Paths.ADD_TESTSCREEN;
+  static const SCHEDULEDCLASSSCREEN = _Paths.SCHEDULEDCLASSSCREEN;
+  static const STUDENTDASHBOARD = _Paths.STUDENTDASHBOARD;
+  static const ATTENDCLASSSTUDENT = _Paths.ATTENDCLASSSTUDENT;
+  static const STUDENTATTENDTEST = _Paths.STUDENTATTENDTEST;
+  static const ATTENDTESTBYSTUDENT = _Paths.ATTENDTESTBYSTUDENT;
 }
 
 abstract class _Paths {
@@ -31,4 +37,10 @@ abstract class _Paths {
   static const TEACHER_DASHBOARD = '/teacher-dashboard';
   static const STUDENTSIGNUPSCREEN = '/studentsignupscreen';
   static const GROUPCHATSCREEN = '/groupchatscreen';
+  static const ADD_TESTSCREEN = '/add-testscreen';
+  static const SCHEDULEDCLASSSCREEN = '/scheduledclassscreen';
+  static const STUDENTDASHBOARD = '/studentdashboard';
+  static const ATTENDCLASSSTUDENT = '/attendclassstudent';
+  static const STUDENTATTENDTEST = '/studentattendtest';
+  static const ATTENDTESTBYSTUDENT = '/attendtestbystudent';
 }

@@ -124,6 +124,7 @@ class ProfilescreenView extends GetView<ProfilescreenController> {
                 child: Column(
                   children: [
                     Row(
+                      key: GlobalKey(),
                       children: [
                         SizedBox(
                           width: 6,
@@ -163,6 +164,7 @@ class ProfilescreenView extends GetView<ProfilescreenController> {
                       ],
                     ),
                     Row(
+                      key: GlobalKey(),
                       children: [
                         SizedBox(
                           width: 6,
@@ -202,6 +204,7 @@ class ProfilescreenView extends GetView<ProfilescreenController> {
                       ],
                     ),
                     Row(
+                      key: GlobalKey(),
                       children: [
                         SizedBox(
                           width: 6,
@@ -241,6 +244,7 @@ class ProfilescreenView extends GetView<ProfilescreenController> {
                       ],
                     ),
                     Row(
+                      key: GlobalKey(),
                       children: [
                         SizedBox(
                           width: 6,
@@ -280,6 +284,7 @@ class ProfilescreenView extends GetView<ProfilescreenController> {
                       ],
                     ),
                     Row(
+                      key: GlobalKey(),
                       children: [
                         SizedBox(
                           width: 6,
@@ -319,6 +324,7 @@ class ProfilescreenView extends GetView<ProfilescreenController> {
                       ],
                     ),
                     Row(
+                      key: GlobalKey(),
                       children: [
                         SizedBox(
                           width: 6,

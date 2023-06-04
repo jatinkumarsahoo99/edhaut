@@ -1,7 +1,13 @@
 import 'package:get/get.dart';
 
+import '../modules/AddTestscreen/bindings/add_testscreen_binding.dart';
+import '../modules/AddTestscreen/views/add_testscreen_view.dart';
 import '../modules/admindashboard/bindings/admindashboard_binding.dart';
 import '../modules/admindashboard/views/admindashboard_view.dart';
+import '../modules/attendclassstudent/bindings/attendclassstudent_binding.dart';
+import '../modules/attendclassstudent/views/attendclassstudent_view.dart';
+import '../modules/attendtestbystudent/bindings/attendtestbystudent_binding.dart';
+import '../modules/attendtestbystudent/views/attendtestbystudent_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
 import '../modules/forgotscreen/bindings/forgotscreen_binding.dart';
@@ -16,10 +22,16 @@ import '../modules/profilescreen/bindings/profilescreen_binding.dart';
 import '../modules/profilescreen/views/profilescreen_view.dart';
 import '../modules/resetpassword/bindings/resetpassword_binding.dart';
 import '../modules/resetpassword/views/resetpassword_view.dart';
+import '../modules/scheduledclassscreen/bindings/scheduledclassscreen_binding.dart';
+import '../modules/scheduledclassscreen/views/scheduledclassscreen_view.dart';
 import '../modules/signupscreen/bindings/signupscreen_binding.dart';
 import '../modules/signupscreen/views/signupscreen_view.dart';
 import '../modules/splashscreen/bindings/splashscreen_binding.dart';
 import '../modules/splashscreen/views/splashscreen_view.dart';
+import '../modules/studentattendtest/bindings/studentattendtest_binding.dart';
+import '../modules/studentattendtest/views/studentattendtest_view.dart';
+import '../modules/studentdashboard/bindings/studentdashboard_binding.dart';
+import '../modules/studentdashboard/views/studentdashboard_view.dart';
 import '../modules/studentsignupscreen/bindings/studentsignupscreen_binding.dart';
 import '../modules/studentsignupscreen/views/studentsignupscreen_view.dart';
 import '../modules/teacherDashboard/bindings/teacher_dashboard_binding.dart';
@@ -90,8 +102,38 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.GROUPCHATSCREEN,
-      page: () =>  GroupchatscreenView(),
+      page: () => GroupchatscreenView(),
       binding: GroupchatscreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_TESTSCREEN,
+      page: () => AddTestscreenView(),
+      binding: AddTestscreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.SCHEDULEDCLASSSCREEN,
+      page: () => ScheduledclassscreenView(),
+      binding: ScheduledclassscreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.STUDENTDASHBOARD,
+      page: () => StudentdashboardView(),
+      binding: StudentdashboardBinding(),
+    ),
+    GetPage(
+      name: _Paths.ATTENDCLASSSTUDENT,
+      page: () => AttendclassstudentView(),
+      binding: AttendclassstudentBinding(),
+    ),
+    GetPage(
+      name: _Paths.STUDENTATTENDTEST,
+      page: () => StudentattendtestView(),
+      binding: StudentattendtestBinding(),
+    ),
+    GetPage(
+      name: _Paths.ATTENDTESTBYSTUDENT,
+      page: () =>  AttendtestbystudentView(),
+      binding: AttendtestbystudentBinding(),
     ),
   ];
 }

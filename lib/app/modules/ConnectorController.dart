@@ -32,21 +32,21 @@ class ConnectorController extends GetConnect {
   updateToken() {}
 
   GETMETHODCALL(
-      {required String api, required Function fun, Function? failed}) async {
+      {required String api, required Function fun}) async {
     print("<<>>>>>API CALL>>>>>>\n\n\n\n\n\n\n\n\n" + api);
     try {
       service.Response response = await dio.get(api);
-      if (response.statusCode == 200) {
+      if (response.statusCode == 200 || response.statusCode == 201 ) {
         try {
           fun(response.data);
         } catch (e) {
           print("Message is: " + e.toString());
         }
       } else if (response.statusCode == 500) {
-        print("MI II>>" + response.data);
+        print("MI II>>" + response.data.toString());
         fun(response.data);
       } else {
-        print("MI II>>" + response.data);
+        print("MI II>>" + response.data.toString());
         fun(failedMap);
       }
     } on DioError catch (e) {

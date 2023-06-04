@@ -1,9 +1,12 @@
+import 'package:edhaut/app/data/ApiFactory.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 
 import '../../../data/app_data.dart';
+import '../../../widgets/DropDown.dart';
+import '../../../widgets/KeyvalueModel.dart';
 import '../controllers/studentsignupscreen_controller.dart';
 
 class StudentsignupscreenView extends GetView<StudentsignupscreenController> {
@@ -16,11 +19,11 @@ class StudentsignupscreenView extends GetView<StudentsignupscreenController> {
         body: SingleChildScrollView(
           child: Container(
             width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height,
+            height: MediaQuery.of(context).size.height*1.2,
             child: Column(
               children: [
                 SizedBox(
-                  height: 10,
+                  height: 2,
                 ),
                 Container(
                   width: MediaQuery.of(context).size.width,
@@ -42,6 +45,15 @@ class StudentsignupscreenView extends GetView<StudentsignupscreenController> {
                           padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
                           child: formFieldemail("Email", Icons.email_outlined,1),
                         ),
+                        Padding(  padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
+                         child: DropDown.networkDropdownGetpart("Select Your Class",
+                              ApiFactory.GETALLCLASSESDROP,'class',
+                                  (KeyvalueModel map){
+                                    StudentsignupscreenController.className = map;
+
+                              },Icons.class_sharp),
+                        ),
+
                         Padding(
                           padding: const EdgeInsets.only(left: 12.0,bottom: 8,right:12,top: 8 ),
                           child: formFieldPassword("Password", Icons.lock_outlined,2),
@@ -66,7 +78,7 @@ class StudentsignupscreenView extends GetView<StudentsignupscreenController> {
                         ElevatedButton(
                           onPressed: () {
                             // Get.toNamed(Routes.LOGINSCREEN);
-                            // controller.validateField();
+                            controller.validateField();
                           },
                           style: ButtonStyle(
                             shape: MaterialStateProperty.all(

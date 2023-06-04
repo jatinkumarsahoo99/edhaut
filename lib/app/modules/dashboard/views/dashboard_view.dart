@@ -1,7 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_button/flutter_animated_button.dart';
 
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../data/app_data.dart';
 import '../../../routes/app_pages.dart';
@@ -54,73 +56,31 @@ class DashboardView extends GetView<DashboardController> {
           automaticallyImplyLeading: false,
 
         ),
-        bottomNavigationBar:  Container(
-          // height: 50,
-          child: BottomNavigationBar(
-            currentIndex: 0,
-            elevation:9,
-            // selectedItemColor:Colors.yellow  ,
-            showUnselectedLabels: true,
-
-            // fixedColor: Colors.deepPurple,
-            // selectedItemColor: Colors.deepPurple,
-            // unselectedItemColor: Colors.black,
-            backgroundColor: Color(0xFFFECFAF),
-            iconSize: 30,
-            onTap: (index) {
-              switch (index) {
-                case 0:
-                  print('Navigate to profile');
-                  // Navigator.pushNamed(context, "/profileMepage");
-                  break;
-                case 1:
-                  print('Navigate to sync');
-                  // Get.toNamed(Routes.MYCART);
-                  Get.toNamed(Routes.GROUPCHATSCREEN);
-                  // ServerCommunicate.updateFromServer(false, widget.model);
-
-                  // Navigator.pushNamed(context, "/profileMepage");
-                  break;
-                case 3:
-                  print('Navigate to profile');
-                  controller.logout();
-
-                  // Get.toNamed(Routes.PROFILE_SCREEN);
-                  // Navigator.pushNamed(context, "/referralProgram");
-                  break;
-                case 2:
-                  print('Navigate to profile');
-                  Get.toNamed(Routes.PROFILESCREEN);
-                  // Navigator.pushNamed(context, "/referralProgram");
-                  break;
-              }
-            },
-            selectedFontSize: 9,
-            unselectedFontSize: 9,
-            type: BottomNavigationBarType.fixed,
-            items: <BottomNavigationBarItem>[
-              BottomNavigationBarItem(
-                  icon: Icon(
-                    Icons.home,
-                    color: Colors.deepOrangeAccent,
+        bottomNavigationBar:  Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            InkWell(
+              onTap: (){
+                Get.toNamed(Routes.STUDENTDASHBOARD);
+              },
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children: [
+                  Container(
+                    child: Text("Next",style: TextStyle(fontSize: 28)),
                   ),
-                  label: "Home"
-                // backgroundColor: AppData.orangeColor
+                  Container(
+                    // height: 50,
+                      child: Lottie.asset(
+                        'assets/next.json',
+                        width: Get.width*0.5,
+                        height: Get.height*0.06,
+                      )
+                  ),
+                ],
               ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.chat),
-                label: 'Test',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: 'Profile',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.logout),
-                label: 'Log out',
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
         body: Container(
           // height: MediaQuery.of(context).size.height*0.98,
