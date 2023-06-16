@@ -1,6 +1,10 @@
 class ApiFactory {
-  static String BASEURL="http://192.168.0.162:5002";
-  static String BASEURL2="http://192.168.0.162:3000";
+  static String BASEURL="http://4.188.234.4:5002";
+  // static String BASEURL="http://192.168.0.162:5002";
+
+  static String BASEURL2="http://4.188.234.4:3000";
+  // static String BASEURL2="http://192.168.0.162:3000";
+
   static String SIGNUP =BASEURL+ "/api/create-teacher";
   static String STUDENT_SIGNUP = BASEURL + "/api/create-student";
   static String LOGIN =BASEURL+ "/api/new-login?email=";

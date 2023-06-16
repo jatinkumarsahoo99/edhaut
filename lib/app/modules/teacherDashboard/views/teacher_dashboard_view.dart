@@ -58,7 +58,7 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
         automaticallyImplyLeading: false,
 
       ),
-      bottomNavigationBar:  Container(
+      bottomNavigationBar: Container(
         // height: 50,
         child: BottomNavigationBar(
           currentIndex: 0,
@@ -125,7 +125,7 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
           ],
         ),
       ),
-      body:  Container(
+      body: Container(
         width: Get.width,
         height: Get.height-Get.bottomBarHeight-Get.statusBarHeight,
         child: Column(
@@ -176,6 +176,23 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
                     icon: "assets/testing.png",
                     fun: () {
                       // showPopup();
+                    },
+                    color: Color(0xFFFECFAF),
+                    bordercolor:Color(0xFFFECFAF),
+                  ),
+                ],
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(13.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  _buildTileblue1(
+                    title:"Ask Question",
+                    icon: "assets/why.png",
+                    fun: () {
+                      Get.toNamed(Routes.GROUPCHATSCREEN);
                     },
                     color: Color(0xFFFECFAF),
                     bordercolor:Color(0xFFFECFAF),

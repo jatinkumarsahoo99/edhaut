@@ -47,7 +47,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
                         child: ListView.builder(
                           itemCount: controller.testData!.questions!.length,
                             itemBuilder: (context,index){
-                          return Column(
+                          return (controller.testData!.questions![index].choices!.isNotEmpty)? Column(
                             children: [
                               Container(
                                 child: Text((controller.testData!.questions![index].serialNo ??"" ) +". "+
@@ -144,7 +144,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
                                 ],
                               ),
                             ],
-                          );
+                          ):Container();
                         }),
                       ),
                     )
