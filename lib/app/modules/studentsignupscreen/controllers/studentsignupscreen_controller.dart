@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../data/ApiFactory.dart';
@@ -53,7 +54,18 @@ class StudentsignupscreenController extends GetxController {
             log(">>>>>"+map.toString());
             if(map['code'] == "sucess"){
               Get.back();
-              Get.toNamed(Routes.LOGINSCREEN);
+              Get.defaultDialog(
+                title: 'Success',
+                middleText: 'User Created successfully!',
+                barrierDismissible: false,
+                confirm: ElevatedButton(
+                  onPressed: () {
+                    Get.toNamed(Routes.LOGINSCREEN);
+                  },
+                  child: Text('OK'),
+                ),
+              );
+              // Get.toNamed(Routes.LOGINSCREEN);
             }else{
               Get.back();
               Snack.callError("Something went wrong");

@@ -33,7 +33,7 @@ class StudentdashboardView extends GetView<StudentdashboardController> {
                       // color: Colors.blueAccent,
                       // border: Border.all(width: 1,),
                       image: DecorationImage(
-                        image: AssetImage("assets/profile1.jpg"),
+                        image: AssetImage("assets/profile.jpg"),
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -80,7 +80,8 @@ class StudentdashboardView extends GetView<StudentdashboardController> {
                 break;
               case 3:
                 print('Navigate to profile');
-                controller.logout();
+                logoutPop(Get.context!);
+
 
                 // Get.toNamed(Routes.PROFILE_SCREEN);
                 // Navigator.pushNamed(context, "/referralProgram");
@@ -122,68 +123,221 @@ class StudentdashboardView extends GetView<StudentdashboardController> {
       body:  Container(
         width: Get.width,
         height: Get.height-Get.bottomBarHeight-Get.statusBarHeight,
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.all(13.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildTileblue1(
-                    title:"Attend Classes",
-                    icon: "assets/class.png",
-                    fun: () {
-                      Get.toNamed(Routes.ATTENDCLASSSTUDENT);
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(13.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildTileblue1(
+                      title:"Attend Classes",
+                      icon: "assets/class.png",
+                      fun: () {
+                        Get.toNamed(Routes.ATTENDCLASSSTUDENT);
 
-                    },
-                    color: Color(0xFFFECFAF),
-                    bordercolor:Color(0xFFFECFAF),
-                  ),
-                  _buildTileblue1(
-                    title:"Attend Test",
-                    icon: "assets/calendar.png",
-                    fun: () {
-                      Get.toNamed(Routes.STUDENTATTENDTEST);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                    _buildTileblue1(
+                      title:"Attend Test",
+                      icon: "assets/calendar.png",
+                      fun: () {
+                        Get.toNamed(Routes.STUDENTATTENDTEST);
 
-                    },
-                    color: Color(0xFFFECFAF),
-                    bordercolor:Color(0xFFFECFAF),
-                  ),
-                ],
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                  ],
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(13.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  _buildTileblue1(
-                    title:"View Result",
-                    icon: "assets/testing.png",
-                    fun: () {
-                      // showPopup();
-                    },
-                    color: Color(0xFFFECFAF),
-                    bordercolor:Color(0xFFFECFAF),
-                  ),
-                  _buildTileblue1(
-                    title:"Ask Question",
-                    icon: "assets/why.png",
-                    fun: () {
-                      Get.toNamed(Routes.GROUPCHATSCREEN);
-                    },
-                    color: Color(0xFFFECFAF),
-                    bordercolor:Color(0xFFFECFAF),
-                  ),
-                ],
+              Padding(
+                padding: const EdgeInsets.all(13.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildTileblue1(
+                      title:"View Result",
+                      icon: "assets/testing.png",
+                      fun: () {
+                        // showPopup();
+                        Get.toNamed(Routes.VIEW_RESULT_STUDENT);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                    _buildTileblue1(
+                      title:"Ask Question",
+                      icon: "assets/why.png",
+                      fun: () {
+                        Get.toNamed(Routes.GROUPCHATSCREEN);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                  ],
+                ),
               ),
-            ),
-          ],
+
+              Padding(
+                padding: const EdgeInsets.all(13.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    _buildTileblue1(
+                      title:"Performance",
+                      icon: "assets/growth.png",
+                      fun: () {
+                        // Get.toNamed(Routes.GROUPCHATSCREEN);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                    _buildTileblue1(
+                      title:"Upcoming Event",
+                      icon: "assets/conference.png",
+                      fun: () {
+                        // Get.toNamed(Routes.GROUPCHATSCREEN);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(13.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    _buildTileblue1(
+                      title:"Attendance",
+                      icon: "assets/immigration.png",
+                      fun: () {
+                        // Get.toNamed(Routes.GROUPCHATSCREEN);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),
+                 /*   _buildTileblue1(
+                      title:"Feed Back",
+                      icon: "assets/review.png",
+                      fun: () {
+                        // Get.toNamed(Routes.GROUPCHATSCREEN);
+                      },
+                      color: Color(0xFFFECFAF),
+                      bordercolor:Color(0xFFFECFAF),
+                    ),*/
+                  ],
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
   }
-
+   void logoutPop(
+       BuildContext context,
+       ) {
+     showDialog(
+         builder: (context) {
+           return AlertDialog(
+             contentPadding: EdgeInsets.only(left: 5, right: 5, top: 20),
+             insetPadding: EdgeInsets.only(left: 5, right: 5, top: 30),
+             content: StatefulBuilder(
+               builder: (BuildContext context, StateSetter setState1) {
+                 return Container(
+                   width: MediaQuery.of(context).size.width * 0.86,
+                   child: SingleChildScrollView(
+                     child: Column(
+                       mainAxisSize: MainAxisSize.min,
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       children: [
+                         // SizedBox(height: 7),
+                         Padding(
+                           padding: const EdgeInsets.only(left: 0, right: 0),
+                           child: Column(
+                             children: [
+                               // SizedBox(height: 7),
+                               Text(
+                                "Logout",
+                                 style: TextStyle(
+                                     fontSize: 14,
+                                     color: Colors.deepPurple,
+                                     fontWeight: FontWeight.bold),
+                               ),
+                               SizedBox(height: 12),
+                               Text(
+                                 "ARE YOU SURE WANT TO LOGOUT?",
+                                 style: TextStyle(
+                                   fontSize: 14,
+                                 ),
+                               ),
+                               SizedBox(height: 40),
+                             ],
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
+                 );
+               },
+             ),
+             actions: <Widget>[
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Center(
+                     child: TextButton(
+                       // color: Colors.deepPurple,
+                       //textColor: Colors.grey,
+                       style: TextButton.styleFrom(
+                         primary: Colors.deepPurple,
+                         backgroundColor: Colors.deepPurple,
+                         onSurface: Colors.deepPurple,
+                       ),
+                       child: Text("No",
+                           style: TextStyle(color: Colors.white)),
+                       onPressed: () {
+                         Navigator.pop(context);
+                       },
+                     ),
+                   ),
+                   SizedBox(
+                     width: 10,
+                   ),
+                   Center(
+                     child: TextButton(
+                       // color: Colors.deepPurple,
+                       //textColor: Colors.grey,
+                       style: TextButton.styleFrom(
+                         primary: Colors.deepPurple,
+                         backgroundColor: Colors.deepPurple,
+                         onSurface: Colors.deepPurple,
+                       ),
+                       child: Text(
+                         "Yes",
+                         //style: TextStyle(color: Colors.grey),
+                         style: TextStyle(color: Colors.white),
+                       ),
+                       onPressed: () {
+                         controller.logout();
+                         // logout(context);
+                         // Navigator.pop(context);
+                       },
+                     ),
+                   ),
+                 ],
+               ),
+             ],
+           );
+         },
+         context: context);
+   }
    Widget _buildTileblue1(
        {String? icon,
          String? title,

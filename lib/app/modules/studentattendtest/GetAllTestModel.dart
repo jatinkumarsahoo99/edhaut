@@ -32,6 +32,7 @@ class GetAllTestModel {
 
 class Body {
   String? examId;
+  String? testId;
   String? examName;
   String? correctChoice;
   String? examDate;
@@ -43,6 +44,7 @@ class Body {
   String? individualMark;
   String? className;
   String? classId;
+  bool ? appear = false;
   List<Questions>? questions;
 
   Body(
@@ -58,10 +60,14 @@ class Body {
         this.individualMark,
         this.className,
         this.classId,
-        this.questions});
+        this.questions,
+        this.appear,
+        this.testId
+      });
 
   Body.fromJson(Map<String, dynamic> json) {
     examId = json['examId'];
+    testId = json['testId'];
     examName = json['examName'];
     correctChoice = json['correctChoice'];
     examDate = json['examDate'];
@@ -73,6 +79,7 @@ class Body {
     individualMark = json['individualMark'];
     className = json['className'];
     classId = json['classId'];
+    appear = json['appear']??false;
     if (json['questions'] != null) {
       questions = <Questions>[];
       json['questions'].forEach((v) {
@@ -84,6 +91,7 @@ class Body {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = new Map<String, dynamic>();
     data['examId'] = this.examId;
+    data['testId'] = this.testId;
     data['examName'] = this.examName;
     data['correctChoice'] = this.correctChoice;
     data['examDate'] = this.examDate;
@@ -95,6 +103,7 @@ class Body {
     data['individualMark'] = this.individualMark;
     data['className'] = this.className;
     data['classId'] = this.classId;
+    data['appear'] = this.appear??false;
     if (this.questions != null) {
       data['questions'] = this.questions!.map((v) => v.toJson()).toList();
     }

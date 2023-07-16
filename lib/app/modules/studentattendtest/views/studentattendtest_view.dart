@@ -111,7 +111,31 @@ class StudentattendtestView extends GetView<StudentattendtestController> {
                                    child: Row(
                                      mainAxisAlignment: MainAxisAlignment.center,
                                      children: [
-                                       InkWell(
+                                       (controller.getAllTestModel!.body![index].appear == true)? InkWell(
+                                         onTap: () {
+                                             Get.toNamed(Routes.VIEW_RESULT,arguments:
+                                             {"studentId":controller.loginResponseModel!.
+                                             body![0].userId,"examId":controller.getAllTestModel!.body![index].examId,
+                                             "name":controller.loginResponseModel!.body![0].name,
+                                               "clssName":controller.loginResponseModel!.body![0].className??""
+                                             });
+                                         },
+                                         child: Container(
+                                             decoration: BoxDecoration(
+                                                 border: Border.all(color: Colors.white, width: 1),
+                                                 color: Colors.green,
+                                                 borderRadius:
+                                                 BorderRadius.all(Radius.circular(6))),
+                                             padding:
+                                             EdgeInsets.symmetric(horizontal: 15, vertical: 7),
+                                             child: Text(
+                                               "View Result",
+                                               style: TextStyle(
+                                                   fontSize: 14,
+                                                   color: Colors.white,
+                                                   fontWeight: FontWeight.bold),
+                                             )),
+                                       ):InkWell(
                                          onTap: () {
                                            // showPopup();
                                            // AppData.launchURL(controller.scheduledClasses!.body![index].classUrl??"");

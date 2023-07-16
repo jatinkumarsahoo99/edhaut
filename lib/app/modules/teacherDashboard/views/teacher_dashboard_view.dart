@@ -34,7 +34,7 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
                     child: Image.asset('assets/logo1.jpg', fit: BoxFit.fill),
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width * 0.13,
+                 /*   width: MediaQuery.of(context).size.width * 0.13,
                     height: MediaQuery.of(context).size.height * 0.07,
                     decoration: BoxDecoration(
                       // color: Colors.blueAccent,
@@ -44,10 +44,21 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
                         fit: BoxFit.cover,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(50)),
+                    ),*/
+                    width: MediaQuery.of(context).size.width * 0.43,
+                    child:  Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: MediaQuery.of(context).size.width * 0.4,
+                          child: FittedBox(
+                            fit: BoxFit.scaleDown,
+                            child:Obx(()=>Text("Hi "+(controller.studentName.value??""),
+                                style: TextStyle(color: Colors.black))) ,
+                          ),
+                        ),
+                      ],
                     ),
-                    /*   child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: Image.asset('assets/profil1.jpg', fit: BoxFit.fill)),*/
                   ),
                 ],
               ),
@@ -87,7 +98,8 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
                 break;
               case 3:
                 print('Navigate to profile');
-                controller.logout();
+                // controller.logout();
+                logoutPop(Get.context!);
                 // Get.toNamed(Routes.PROFILE_SCREEN);
                 // Navigator.pushNamed(context, "/referralProgram");
                 break;
@@ -186,13 +198,22 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _buildTileblue1(
                     title:"Ask Question",
                     icon: "assets/why.png",
                     fun: () {
                       Get.toNamed(Routes.GROUPCHATSCREEN);
+                    },
+                    color: Color(0xFFFECFAF),
+                    bordercolor:Color(0xFFFECFAF),
+                  ),
+                  _buildTileblue1(
+                    title:"Attendance",
+                    icon: "assets/immigration.png",
+                    fun: () {
+                      // Get.toNamed(Routes.GROUPCHATSCREEN);
                     },
                     color: Color(0xFFFECFAF),
                     bordercolor:Color(0xFFFECFAF),
@@ -459,6 +480,105 @@ class TeacherDashboardView extends GetView<TeacherDashboardController> {
          ),
        ),
      );
+   }
+
+   void logoutPop(
+       BuildContext context,
+       ) {
+     showDialog(
+         builder: (context) {
+           return AlertDialog(
+             contentPadding: EdgeInsets.only(left: 5, right: 5, top: 20),
+             insetPadding: EdgeInsets.only(left: 5, right: 5, top: 30),
+             content: StatefulBuilder(
+               builder: (BuildContext context, StateSetter setState1) {
+                 return Container(
+                   width: MediaQuery.of(context).size.width * 0.86,
+                   child: SingleChildScrollView(
+                     child: Column(
+                       mainAxisSize: MainAxisSize.min,
+                       crossAxisAlignment: CrossAxisAlignment.center,
+                       children: [
+                         // SizedBox(height: 7),
+                         Padding(
+                           padding: const EdgeInsets.only(left: 0, right: 0),
+                           child: Column(
+                             children: [
+                               // SizedBox(height: 7),
+                               Text(
+                                 "Logout",
+                                 style: TextStyle(
+                                     fontSize: 14,
+                                     color: Colors.deepPurple,
+                                     fontWeight: FontWeight.bold),
+                               ),
+                               SizedBox(height: 12),
+                               Text(
+                                 "ARE YOU SURE WANT TO LOGOUT?",
+                                 style: TextStyle(
+                                   fontSize: 14,
+                                 ),
+                               ),
+                               SizedBox(height: 40),
+                             ],
+                           ),
+                         ),
+                       ],
+                     ),
+                   ),
+                 );
+               },
+             ),
+             actions: <Widget>[
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.center,
+                 children: [
+                   Center(
+                     child: TextButton(
+                       // color: Colors.deepPurple,
+                       //textColor: Colors.grey,
+                       style: TextButton.styleFrom(
+                         primary: Colors.deepPurple,
+                         backgroundColor: Colors.deepPurple,
+                         onSurface: Colors.deepPurple,
+                       ),
+                       child: Text("No",
+                           style: TextStyle(color: Colors.white)),
+                       onPressed: () {
+                         Navigator.pop(context);
+                       },
+                     ),
+                   ),
+                   SizedBox(
+                     width: 10,
+                   ),
+                   Center(
+                     child: TextButton(
+                       // color: Colors.deepPurple,
+                       //textColor: Colors.grey,
+                       style: TextButton.styleFrom(
+                         primary: Colors.deepPurple,
+                         backgroundColor: Colors.deepPurple,
+                         onSurface: Colors.deepPurple,
+                       ),
+                       child: Text(
+                         "Yes",
+                         //style: TextStyle(color: Colors.grey),
+                         style: TextStyle(color: Colors.white),
+                       ),
+                       onPressed: () {
+                         controller.logout();
+                         // logout(context);
+                         // Navigator.pop(context);
+                       },
+                     ),
+                   ),
+                 ],
+               ),
+             ],
+           );
+         },
+         context: context);
    }
 
    void showPopup() {

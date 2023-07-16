@@ -17,7 +17,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
       ),
       color: Colors.deepPurple,
       onPressed: (){
-        // controller.submitTest();
+        controller.saveTest();
       },
       height: 35,
     );
@@ -50,7 +50,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
                           return (controller.testData!.questions![index].choices!.isNotEmpty)? Column(
                             children: [
                               Container(
-                                child: Text((controller.testData!.questions![index].serialNo ??"" ) +". "+
+                                child: Text("${index+1}" +". "+
                                     (controller.testData!.questions![index].questionName ?? "")+"?.",style: TextStyle(fontSize: 20,
                                     fontWeight: FontWeight.bold, color: Colors.black)),
                               ),
@@ -71,7 +71,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
 
                                   }),
                                   Container(
-                                    child: Text((controller.testData!.questions![index].choices![0].slNo  ??"" ) +". "+
+                                    child: Text("1" +". "+
                                         ( controller.testData!.questions![index].choices![0].choiceName?? "")),
                                   )
                                 ],
@@ -93,7 +93,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
 
                                       }),
                                   Container(
-                                    child: Text((controller.testData!.questions![index].choices![1].slNo  ??"" ) +". "+
+                                    child: Text("2" +". "+
                                         ( controller.testData!.questions![index].choices![1].choiceName?? "")),
                                   )
                                 ],
@@ -115,12 +115,11 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
 
                                       }),
                                   Container(
-                                    child: Text((controller.testData!.questions![index].choices![2].slNo  ??"" ) +". "+
+                                    child: Text("3" +". "+
                                         ( controller.testData!.questions![index].choices![2].choiceName?? "")),
                                   )
                                 ],
-                              )
-                              ,
+                              ),
                               Row(
                                 children: [
                                   Checkbox(
@@ -138,7 +137,7 @@ class AttendtestbystudentView extends GetView<AttendtestbystudentController> {
 
                                       }),
                                   Container(
-                                    child: Text((controller.testData!.questions![index].choices![3].slNo  ??"" ) +". "+
+                                    child: Text("4" +". "+
                                         ( controller.testData!.questions![index].choices![3].choiceName?? "")),
                                   )
                                 ],

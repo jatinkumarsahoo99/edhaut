@@ -59,11 +59,23 @@ class SignupscreenController extends GetxController {
           json: postData,
           fun: (Map<String,dynamic> map){
         log(">>>>>"+map.toString());
+        Get.back();
         if(map['code'] == "sucess"){
-          Get.back();
-          Get.toNamed(Routes.LOGINSCREEN);
+          // Data saved successfully, show pop-up dialog
+          Get.defaultDialog(
+            title: 'Success',
+            middleText: 'Data saved successfully!',
+            barrierDismissible: false,
+            confirm: ElevatedButton(
+              onPressed: () {
+                Get.toNamed(Routes.LOGINSCREEN);
+              },
+              child: Text('OK'),
+            ),
+          );
+
+
         }else{
-          Get.back();
           Snack.callError("Something went wrong");
         }
 

@@ -21,6 +21,9 @@ abstract class Routes {
   static const ATTENDCLASSSTUDENT = _Paths.ATTENDCLASSSTUDENT;
   static const STUDENTATTENDTEST = _Paths.STUDENTATTENDTEST;
   static const ATTENDTESTBYSTUDENT = _Paths.ATTENDTESTBYSTUDENT;
+  static const FORGOTPIN = _Paths.FORGOTPIN;
+  static const VIEW_RESULT = _Paths.VIEW_RESULT;
+  static const VIEW_RESULT_STUDENT = _Paths.VIEW_RESULT_STUDENT;
 }
 
 abstract class _Paths {
@@ -43,4 +46,7 @@ abstract class _Paths {
   static const ATTENDCLASSSTUDENT = '/attendclassstudent';
   static const STUDENTATTENDTEST = '/studentattendtest';
   static const ATTENDTESTBYSTUDENT = '/attendtestbystudent';
+  static const FORGOTPIN = '/forgotpin';
+  static const VIEW_RESULT = '/view-result';
+  static const VIEW_RESULT_STUDENT = '/view-result-student';
 }

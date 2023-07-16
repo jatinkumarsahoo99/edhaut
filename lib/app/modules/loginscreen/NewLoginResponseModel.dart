@@ -35,14 +35,18 @@ class Body {
   String? name;
   String? userId;
   String? email;
+  String? className;
+  String? classId;
 
-  Body({this.role, this.name, this.userId, this.email});
+  Body({this.role, this.name, this.userId, this.email,this.classId,this.className});
 
   Body.fromJson(Map<String, dynamic> json) {
     role = json['role'];
+    className = json['className'];
     name = json['name'];
     userId = json['userId'];
     email = json['email'];
+    classId = json['classId'];
   }
 
   Map<String, dynamic> toJson() {
@@ -51,6 +55,8 @@ class Body {
     data['name'] = this.name;
     data['userId'] = this.userId;
     data['email'] = this.email;
+    data['className'] = this.className;
+    data['classId'] = this.classId;
     return data;
   }
 }

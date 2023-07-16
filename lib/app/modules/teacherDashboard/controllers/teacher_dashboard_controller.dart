@@ -18,6 +18,7 @@ import '../PostTestModel.dart';
 class TeacherDashboardController extends GetxController {
   //TODO: Implement TeacherDashboardController
   NewLoginResponseModel? loginResponseModel;
+  Rx<String> studentName = Rx<String>("");
   SharedPref sharedPref = SharedPref();
   List<TextEditingController> textEditingController =
   [new TextEditingController(),new TextEditingController(),new TextEditingController(),
@@ -30,6 +31,7 @@ class TeacherDashboardController extends GetxController {
 
   var login;
   final count = 0.obs;
+
   @override
   void onInit() {
     fetchLocalData();
@@ -69,6 +71,8 @@ class TeacherDashboardController extends GetxController {
       loginResponseModel = NewLoginResponseModel.fromJson(
           jsonDecode(await sharedPref.getKey(Const.LOGIN_DATA)));
       isProcessing = false;
+      studentName.value = loginResponseModel!.body![0].name??"";
+      studentName.refresh();
       log(">>>>>>>>"+loginResponseModel!.toJson().toString());
       // update(["teacherDash"]);
     }

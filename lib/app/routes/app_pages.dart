@@ -10,6 +10,8 @@ import '../modules/attendtestbystudent/bindings/attendtestbystudent_binding.dart
 import '../modules/attendtestbystudent/views/attendtestbystudent_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/forgotpin/bindings/forgotpin_binding.dart';
+import '../modules/forgotpin/views/forgotpin_view.dart';
 import '../modules/forgotscreen/bindings/forgotscreen_binding.dart';
 import '../modules/forgotscreen/views/forgotscreen_view.dart';
 import '../modules/groupchatscreen/bindings/groupchatscreen_binding.dart';
@@ -36,6 +38,10 @@ import '../modules/studentsignupscreen/bindings/studentsignupscreen_binding.dart
 import '../modules/studentsignupscreen/views/studentsignupscreen_view.dart';
 import '../modules/teacherDashboard/bindings/teacher_dashboard_binding.dart';
 import '../modules/teacherDashboard/views/teacher_dashboard_view.dart';
+import '../modules/viewResult/bindings/view_result_binding.dart';
+import '../modules/viewResult/views/view_result_view.dart';
+import '../modules/viewResultStudent/bindings/view_result_student_binding.dart';
+import '../modules/viewResultStudent/views/view_result_student_view.dart';
 
 part 'app_routes.dart';
 
@@ -132,8 +138,23 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.ATTENDTESTBYSTUDENT,
-      page: () =>  AttendtestbystudentView(),
+      page: () => AttendtestbystudentView(),
       binding: AttendtestbystudentBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORGOTPIN,
+      page: () => const ForgotpinView(),
+      binding: ForgotpinBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIEW_RESULT,
+      page: () => ViewResultView(),
+      binding: ViewResultBinding(),
+    ),
+    GetPage(
+      name: _Paths.VIEW_RESULT_STUDENT,
+      page: () =>  ViewResultStudentView(),
+      binding: ViewResultStudentBinding(),
     ),
   ];
 }

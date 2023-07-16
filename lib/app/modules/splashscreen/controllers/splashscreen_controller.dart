@@ -35,7 +35,7 @@ class SplashscreenController extends GetxController {
   void increment() => count.value++;
 
   void callTimer() {
-    Timer(Duration(seconds: 8), fetchLocalData);
+    Timer(Duration(seconds: 3), fetchLocalData);
   }
 
 

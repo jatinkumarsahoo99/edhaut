@@ -19,6 +19,10 @@ dependencies:
   socket_io_client:
   flutter_spinkit:
   flutter_animated_button:
+  pdf:
+  path_provider:
+  share_plus:
+  printing:
   lottie:
   intl:
   uuid:

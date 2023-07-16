@@ -25,7 +25,7 @@ class LoginscreenView extends GetView<LoginscreenController> {
               Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.4,
-                child: Image.asset('assets/study.jpg', fit: BoxFit.fill),
+                child: Image.asset('assets/studysign.jpg', fit: BoxFit.fill),
               ),
               Expanded(
                 child: Container(

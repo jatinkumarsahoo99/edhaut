@@ -32,9 +32,7 @@ class DashboardView extends GetView<DashboardController> {
                       child: Image.asset('assets/logo1.jpg', fit: BoxFit.fill),
                     ),
                     Container(
-                      width: MediaQuery.of(context).size.width * 0.13,
-                      height: MediaQuery.of(context).size.height * 0.07,
-                      decoration: BoxDecoration(
+                     /* decoration: BoxDecoration(
                         // color: Colors.blueAccent,
                         // border: Border.all(width: 1,),
                         image: DecorationImage(
@@ -42,10 +40,21 @@ class DashboardView extends GetView<DashboardController> {
                           fit: BoxFit.cover,
                         ),
                         borderRadius: BorderRadius.all(Radius.circular(50)),
+                      ),*/
+                      width: MediaQuery.of(context).size.width * 0.43,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          Container(
+                            width: MediaQuery.of(context).size.width * 0.4,
+                            child: FittedBox(
+                              fit: BoxFit.scaleDown,
+                              child:Obx(()=>Text("Hi "+(controller.studentName.value??""),
+                                  style: TextStyle(color: Colors.black))),
+                            ),
+                          ),
+                        ],
                       ),
-                      /*   child: FittedBox(
-                        fit: BoxFit.contain,
-                        child: Image.asset('assets/profil1.jpg', fit: BoxFit.fill)),*/
                     ),
                   ],
                 ),
@@ -56,7 +65,55 @@ class DashboardView extends GetView<DashboardController> {
           automaticallyImplyLeading: false,
 
         ),
-        bottomNavigationBar:  Row(
+        bottomNavigationBar:   Container(
+          // height: 50,
+          child: BottomNavigationBar(
+            currentIndex: 0,
+            elevation:9,
+            // selectedItemColor:Colors.yellow  ,
+            showUnselectedLabels: true,
+
+            // fixedColor: Colors.deepPurple,
+            // selectedItemColor: Colors.deepPurple,
+            // unselectedItemColor: Colors.black,
+            backgroundColor: Color(0xFFFECFAF),
+            iconSize: 30,
+            onTap: (index) {
+              switch (index) {
+                case 0:
+                  print('Navigate to profile');
+                  // Navigator.pushNamed(context, "/profileMepage");
+                  break;
+                case 1:
+                  print('Navigate to sync');
+                  // Get.toNamed(Routes.MYCART);
+                  Get.toNamed(Routes.STUDENTDASHBOARD);
+                  // ServerCommunicate.updateFromServer(false, widget.model);
+
+                  // Navigator.pushNamed(context, "/profileMepage");
+                  break;
+              }
+            },
+            selectedFontSize: 9,
+            unselectedFontSize: 9,
+            type: BottomNavigationBarType.fixed,
+            items: <BottomNavigationBarItem>[
+              BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.home,
+                    color: Colors.deepOrangeAccent,
+                  ),
+                  label: "Home"
+                // backgroundColor: AppData.orangeColor
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.chat),
+                label: 'Dashboard',
+              ),
+            ],
+          ),
+        ),
+        /*Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             InkWell(
@@ -81,7 +138,7 @@ class DashboardView extends GetView<DashboardController> {
               ),
             ),
           ],
-        ),
+        ),*/
         body: Container(
           // height: MediaQuery.of(context).size.height*0.98,
           child: Column(
