@@ -1,18 +1,23 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
+import 'package:sizer/sizer.dart';
 
+import '../../../data/Constants.dart';
 import '../../../routes/app_pages.dart';
 import '../controllers/studentdashboard_controller.dart';
+import '../student_data.dart';
 
 class StudentdashboardView extends GetView<StudentdashboardController> {
    StudentdashboardView({Key? key}) : super(key: key);
    StudentdashboardController controller = Get.find<StudentdashboardController>() ;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFfff0d9),
-      appBar: AppBar(
+      // backgroundColor: Color(0xFFfff0d9),
+      backgroundColor: Color(0xFFFECFAF),
+     /* appBar: AppBar(
         title: Container(
           color:Color(0xFFFECFAF),
           child: Padding(
@@ -38,9 +43,9 @@ class StudentdashboardView extends GetView<StudentdashboardController> {
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(50)),
                     ),
-                    /*   child: FittedBox(
+                    *//*   child: FittedBox(
                         fit: BoxFit.contain,
-                        child: Image.asset('assets/profil1.jpg', fit: BoxFit.fill)),*/
+                        child: Image.asset('assets/profil1.jpg', fit: BoxFit.fill)),*//*
                   ),
                 ],
               ),
@@ -51,6 +56,7 @@ class StudentdashboardView extends GetView<StudentdashboardController> {
         automaticallyImplyLeading: false,
 
       ),
+
       bottomNavigationBar:  Container(
         // height: 50,
         child: BottomNavigationBar(
@@ -119,124 +125,196 @@ class StudentdashboardView extends GetView<StudentdashboardController> {
             ),
           ],
         ),
-      ),
-      body:  Container(
-        width: Get.width,
-        height: Get.height-Get.bottomBarHeight-Get.statusBarHeight,
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(13.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    _buildTileblue1(
-                      title:"Attend Classes",
-                      icon: "assets/class.png",
-                      fun: () {
-                        Get.toNamed(Routes.ATTENDCLASSSTUDENT);
+      ),*/
 
-                      },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
-                    ),
-                    _buildTileblue1(
-                      title:"Attend Test",
-                      icon: "assets/calendar.png",
-                      fun: () {
-                        Get.toNamed(Routes.STUDENTATTENDTEST);
-
-                      },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
-                    ),
-                  ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(13.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      body:  Column(
+        children: [
+          Container(
+            color: Color(0xFFFECFAF),
+            width: 100.w,
+            height: 40.h,
+            padding: EdgeInsets.all(kDefaultPadding),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildTileblue1(
-                      title:"View Result",
-                      icon: "assets/testing.png",
-                      fun: () {
-                        // showPopup();
-                        Get.toNamed(Routes.VIEW_RESULT_STUDENT);
-                      },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        StudentName(
+                          studentName: 'Aisha',
+                        ),
+                        kHalfSizedBox,
+                        StudentClass(
+                            studentClass: 'Class X-II A | Roll no: 12'),
+                        kHalfSizedBox,
+                        StudentYear(studentYear: '2020-2021'),
+                      ],
                     ),
-                    _buildTileblue1(
-                      title:"Ask Question",
-                      icon: "assets/why.png",
-                      fun: () {
-                        Get.toNamed(Routes.GROUPCHATSCREEN);
-                      },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
-                    ),
+                    kHalfSizedBox,
+                    StudentPicture(
+                        picAddress: 'assets/student_profile.jpeg',
+                        onPress: () {
+                          Get.toNamed(Routes.PROFILESCREEN2);
+                          // go to profile detail screen here
+                          // Navigator.pushNamed(context, MyProfileScreen.routeName);
+                        }),
                   ],
                 ),
-              ),
-
-              Padding(
-                padding: const EdgeInsets.all(13.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                sizedBox,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    _buildTileblue1(
-                      title:"Performance",
-                      icon: "assets/growth.png",
-                      fun: () {
-                        // Get.toNamed(Routes.GROUPCHATSCREEN);
+                    StudentDataCard(
+                      onPress: () {
+                        //go to attendance screen
                       },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
+                      title: 'Attendance',
+                      value: '90.02%',
                     ),
-                    _buildTileblue1(
-                      title:"Upcoming Event",
-                      icon: "assets/conference.png",
-                      fun: () {
-                        // Get.toNamed(Routes.GROUPCHATSCREEN);
+                    StudentDataCard(
+                      onPress: () {
+                        Get.toNamed(Routes.FEESCREEN);
+                        //go to fee due screen
+                        // Navigator.pushNamed(context, FeeScreen.routeName);
                       },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
+                      title: 'Fees Due',
+                      value: '600\$',
                     ),
                   ],
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.all(13.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    _buildTileblue1(
-                      title:"Attendance",
-                      icon: "assets/immigration.png",
-                      fun: () {
-                        // Get.toNamed(Routes.GROUPCHATSCREEN);
-                      },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
-                    ),
-                 /*   _buildTileblue1(
-                      title:"Feed Back",
-                      icon: "assets/review.png",
-                      fun: () {
-                        // Get.toNamed(Routes.GROUPCHATSCREEN);
-                      },
-                      color: Color(0xFFFECFAF),
-                      bordercolor:Color(0xFFFECFAF),
-                    ),*/
-                  ],
-                ),
-              ),
-            ],
+                )
+              ],
+            ),
           ),
-        ),
+          Expanded(
+            child: Container(
+              width: Get.width,
+              decoration: BoxDecoration(
+                color: kOtherColor,
+                borderRadius: kTopBorderRadius,
+              ),
+              // height: (Get.height-Get.bottomBarHeight-Get.statusBarHeight)*0.5,
+              child: SingleChildScrollView(
+                physics: BouncingScrollPhysics(),
+                child: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildTileblue1(
+                            title:"Attend Classes",
+                            icon: "assets/class.png",
+                            fun: () {
+                              Get.toNamed(Routes.ATTENDCLASSSTUDENT);
+
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                          _buildTileblue1(
+                            title:"Attend Test",
+                            icon: "assets/calendar.png",
+                            fun: () {
+                              Get.toNamed(Routes.STUDENTATTENDTEST);
+
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildTileblue1(
+                            title:"View Result",
+                            icon: "assets/testing.png",
+                            fun: () {
+                              // showPopup();
+                              Get.toNamed(Routes.VIEW_RESULT_STUDENT);
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                          _buildTileblue1(
+                            title:"Ask Question",
+                            icon: "assets/why.png",
+                            fun: () {
+                              Get.toNamed(Routes.GROUPCHATSCREEN);
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                        ],
+                      ),
+                    ),
+
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _buildTileblue1(
+                            title:"Performance",
+                            icon: "assets/growth.png",
+                            fun: () {
+                              Get.toNamed(Routes.PERFORMANCESCREEN);
+                              // Get.toNamed(Routes.GROUPCHATSCREEN);
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                          _buildTileblue1(
+                            title:"Upcoming Event",
+                            icon: "assets/conference.png",
+                            fun: () {
+                              // Get.toNamed(Routes.GROUPCHATSCREEN);
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(13.0),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          _buildTileblue1(
+                            title:"Attendance",
+                            icon: "assets/immigration.png",
+                            fun: () {
+                              // Get.toNamed(Routes.GROUPCHATSCREEN);
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),
+                       /*   _buildTileblue1(
+                            title:"Feed Back",
+                            icon: "assets/review.png",
+                            fun: () {
+                              // Get.toNamed(Routes.GROUPCHATSCREEN);
+                            },
+                            color: Color(0xFFFECFAF),
+                            bordercolor:Color(0xFFFECFAF),
+                          ),*/
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

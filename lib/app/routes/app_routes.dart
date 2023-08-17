@@ -24,6 +24,10 @@ abstract class Routes {
   static const FORGOTPIN = _Paths.FORGOTPIN;
   static const VIEW_RESULT = _Paths.VIEW_RESULT;
   static const VIEW_RESULT_STUDENT = _Paths.VIEW_RESULT_STUDENT;
+  static const PROFILESCREEN2 = _Paths.PROFILESCREEN2;
+  static const FEESCREEN = _Paths.FEESCREEN;
+  static const PERFORMANCESCREEN = _Paths.PERFORMANCESCREEN;
+  static const BLURTOOTHSCREEN = _Paths.BLURTOOTHSCREEN;
 }
 
 abstract class _Paths {
@@ -49,4 +53,8 @@ abstract class _Paths {
   static const FORGOTPIN = '/forgotpin';
   static const VIEW_RESULT = '/view-result';
   static const VIEW_RESULT_STUDENT = '/view-result-student';
+  static const PROFILESCREEN2 = '/profilescreen2';
+  static const FEESCREEN = '/feescreen';
+  static const PERFORMANCESCREEN = '/performancescreen';
+  static const BLURTOOTHSCREEN = '/blurtoothscreen';
 }

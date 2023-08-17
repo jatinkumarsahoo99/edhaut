@@ -19,6 +19,7 @@ class ApiFactory {
   static String GETSUBMITTEST_LIST =BASEURL+ "/api/get-onlytestId-allSubmittedTest?studentId=";
 
   static String GETSUBMITTEST_LIST_FILTERBYID =BASEURL+ "/api/get-SubmitedtestById?studentId=";
+  static String GET_ALL_SUBMITED_TEST =BASEURL+ "/api/get-all-allSubmittedTest?studentId=";
 
 
 

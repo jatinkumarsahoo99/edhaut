@@ -26,6 +26,9 @@ dependencies:
   lottie:
   intl:
   uuid:
+  percent_indicator:
+  google_fonts:
+  sizer:
   flutter: 
     sdk: flutter
 

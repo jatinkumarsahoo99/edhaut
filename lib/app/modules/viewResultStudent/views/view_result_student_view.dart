@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 import 'package:get/get.dart';
+import 'package:percent_indicator/circular_percent_indicator.dart';
 
 import '../controllers/view_result_student_controller.dart';
 
@@ -21,9 +22,9 @@ class ViewResultStudentView extends GetView<ViewResultStudentController> {
         child:GetBuilder<ViewResultStudentController>(
             id: 'test',
             builder: (controller) {
-              return (controller.getAllTestModel != null)?
+              return (controller.allSubmitedTestWithResultModel != null)?
               ListView.builder(
-                  itemCount: controller.getAllTestModel!.body!.length,
+                  itemCount: controller.allSubmitedTestWithResultModel!.body!.length,
                   itemBuilder: (context,index){
                     return Padding(
                       padding: const EdgeInsets.all(8.0),
@@ -40,7 +41,7 @@ class ViewResultStudentView extends GetView<ViewResultStudentController> {
                                     child: Text("Exam name: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
                                   ),
                                   Container(
-                                    child: Text(controller.getAllTestModel!.body![index].examName??""),
+                                    child: Text(controller.allSubmitedTestWithResultModel!.body![index].testName??""),
                                   )
                                 ],
                               ),
@@ -50,37 +51,7 @@ class ViewResultStudentView extends GetView<ViewResultStudentController> {
                                     child: Text("Class: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
                                   ),
                                   Container(
-                                    child: Text(controller.getAllTestModel!.body![index].className??""),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    child: Text("Exam Date: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
-                                  ),
-                                  Container(
-                                    child: Text(controller.getAllTestModel!.body![index].examDate??""),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    child: Text("Exam Duration(Min): ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
-                                  ),
-                                  Container(
-                                    child: Text(controller.getAllTestModel!.body![index].examDuration??""),
-                                  )
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Container(
-                                    child: Text("Total Question: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
-                                  ),
-                                  Container(
-                                    child: Text(controller.getAllTestModel!.body![index].totalQuestion??""),
+                                    child: Text(controller.allSubmitedTestWithResultModel!.body![index].className??""),
                                   )
                                 ],
                               ),
@@ -90,26 +61,52 @@ class ViewResultStudentView extends GetView<ViewResultStudentController> {
                                     child: Text("Total Mark: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
                                   ),
                                   Container(
-                                    child: Text(controller.getAllTestModel!.body![index].tpotalMark??""),
+                                    child: Text(controller.allSubmitedTestWithResultModel!.body![index].tpotalMark??""),
                                   )
                                 ],
                               ),
                               Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                 children: [
                                   Container(
-                                    child: Text("Individual Mark: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
+                                    child: Text("Mark Secured: ",style: TextStyle(fontSize: 16,fontWeight: FontWeight.bold)),
                                   ),
                                   Container(
-                                    child: Text(controller.getAllTestModel!.body![index].individualMark??""),
+                                    width: MediaQuery.of(context).size.width*0.15,
+                                    decoration:  BoxDecoration(
+                                      color: Colors.greenAccent,
+                                      border: Border.all(width: 1,color: Colors.greenAccent),
+                                      borderRadius: BorderRadius.all(Radius.circular(50)),
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Column(
+                                        children: [
+                                          Text("90"),
+                                          Divider(height: 2,color: Colors.black,thickness: 2,),
+                                          Text("100"),
+                                        ],
+                                      ),
+                                    ),
                                   )
                                 ],
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(horizontal: 13.0),
                                 child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                   children: [
-                                    (controller.getAllTestModel!.body![index].appear == true)? InkWell(
+                                    new CircularPercentIndicator(
+                                      radius: 25.0,
+                                      // lineWidth: 4.0,
+                                      percent: 0.60,
+                                      center: new Text("60%",),
+                                      progressColor: Colors.yellow,
+                                    ),
+                                    Container(
+                                      child: Image.asset("assets/passed.png",height: 30,width: 30),
+                                    ),
+                                    InkWell(
                                       onTap: () {
 
                                       },
@@ -128,28 +125,7 @@ class ViewResultStudentView extends GetView<ViewResultStudentController> {
                                                 color: Colors.white,
                                                 fontWeight: FontWeight.bold),
                                           )),
-                                    ):InkWell(
-                                      onTap: () {
-                                        // showPopup();
-                                        // AppData.launchURL(controller.scheduledClasses!.body![index].classUrl??"");
-                                        // Get.toNamed(Routes.ATTENDTESTBYSTUDENT,arguments:controller.getAllTestModel!.body![index].toJson());
-                                      },
-                                      child: Container(
-                                          decoration: BoxDecoration(
-                                              border: Border.all(color: Colors.white, width: 1),
-                                              color: Colors.deepPurple,
-                                              borderRadius:
-                                              BorderRadius.all(Radius.circular(6))),
-                                          padding:
-                                          EdgeInsets.symmetric(horizontal: 15, vertical: 7),
-                                          child: Text(
-                                            "Attend Test",
-                                            style: TextStyle(
-                                                fontSize: 14,
-                                                color: Colors.white,
-                                                fontWeight: FontWeight.bold),
-                                          )),
-                                    ),
+                                    )
                                   ],
                                 ),
                               ),

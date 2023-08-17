@@ -87,6 +87,7 @@ class DashboardView extends GetView<DashboardController> {
                 case 1:
                   print('Navigate to sync');
                   // Get.toNamed(Routes.MYCART);
+                  // Get.toNamed(Routes.STUDENTDASHBOARD);
                   Get.toNamed(Routes.STUDENTDASHBOARD);
                   // ServerCommunicate.updateFromServer(false, widget.model);
 
@@ -277,7 +278,7 @@ class DashboardView extends GetView<DashboardController> {
 
                                                   children: [
                                                     Container(
-                                                      child: Text("Physics(8th)"),
+                                                      child: Text("Physics(8th)",style: TextStyle(fontSize: 15)),
                                                     ),
                                                     Row(
                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -330,7 +331,7 @@ class DashboardView extends GetView<DashboardController> {
                                                       mainAxisAlignment: MainAxisAlignment. start,
                                                       children: [
                                                         Container(
-                                                          child: Text("Math(11th)"),
+                                                          child: Text("Math(11th)",style: TextStyle(fontSize: 15)),
                                                         ),
                                                       ],
                                                     ),
@@ -387,7 +388,7 @@ class DashboardView extends GetView<DashboardController> {
 
                                                   children: [
                                                     Container(
-                                                      child: Text("Biology(8th)"),
+                                                      child: Text("Biology(8th)",style: TextStyle(fontSize: 15)),
                                                     ),
                                                     Row(
                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -440,7 +441,7 @@ class DashboardView extends GetView<DashboardController> {
                                                       mainAxisAlignment: MainAxisAlignment.start,
                                                       children: [
                                                         Container(
-                                                          child: Text("AI(8th)"),
+                                                          child: Text("AI(8th)",style: TextStyle(fontSize: 15)),
                                                         ),
                                                       ],
                                                     ),
@@ -497,7 +498,7 @@ class DashboardView extends GetView<DashboardController> {
 
                                                   children: [
                                                     Container(
-                                                      child: Text("Physics(8th)"),
+                                                      child: Text("Physics(8th)",style: TextStyle(fontSize: 15)),
                                                     ),
                                                     Row(
                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -547,7 +548,7 @@ class DashboardView extends GetView<DashboardController> {
 
                                                   children: [
                                                     Container(
-                                                      child: Text("Physics(8th)"),
+                                                      child: Text("Physics(8th)",style: TextStyle(fontSize: 15)),
                                                     ),
                                                     Row(
                                                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

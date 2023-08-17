@@ -8,8 +8,12 @@ import '../modules/attendclassstudent/bindings/attendclassstudent_binding.dart';
 import '../modules/attendclassstudent/views/attendclassstudent_view.dart';
 import '../modules/attendtestbystudent/bindings/attendtestbystudent_binding.dart';
 import '../modules/attendtestbystudent/views/attendtestbystudent_view.dart';
+import '../modules/blurtoothscreen/bindings/blurtoothscreen_binding.dart';
+import '../modules/blurtoothscreen/views/blurtoothscreen_view.dart';
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import '../modules/feescreen/bindings/feescreen_binding.dart';
+import '../modules/feescreen/views/feescreen_view.dart';
 import '../modules/forgotpin/bindings/forgotpin_binding.dart';
 import '../modules/forgotpin/views/forgotpin_view.dart';
 import '../modules/forgotscreen/bindings/forgotscreen_binding.dart';
@@ -20,8 +24,12 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/loginscreen/bindings/loginscreen_binding.dart';
 import '../modules/loginscreen/views/loginscreen_view.dart';
+import '../modules/performancescreen/bindings/performancescreen_binding.dart';
+import '../modules/performancescreen/views/performancescreen_view.dart';
 import '../modules/profilescreen/bindings/profilescreen_binding.dart';
 import '../modules/profilescreen/views/profilescreen_view.dart';
+import '../modules/profilescreen2/bindings/profilescreen2_binding.dart';
+import '../modules/profilescreen2/views/profilescreen2_view.dart';
 import '../modules/resetpassword/bindings/resetpassword_binding.dart';
 import '../modules/resetpassword/views/resetpassword_view.dart';
 import '../modules/scheduledclassscreen/bindings/scheduledclassscreen_binding.dart';
@@ -153,8 +161,28 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.VIEW_RESULT_STUDENT,
-      page: () =>  ViewResultStudentView(),
+      page: () => ViewResultStudentView(),
       binding: ViewResultStudentBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILESCREEN2,
+      page: () => Profilescreen2View(),
+      binding: Profilescreen2Binding(),
+    ),
+    GetPage(
+      name: _Paths.FEESCREEN,
+      page: () => const FeescreenView(),
+      binding: FeescreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.PERFORMANCESCREEN,
+      page: () => const PerformancescreenView(),
+      binding: PerformancescreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.BLURTOOTHSCREEN,
+      page: () =>  BlurtoothscreenView(),
+      binding: BlurtoothscreenBinding(),
     ),
   ];
 }

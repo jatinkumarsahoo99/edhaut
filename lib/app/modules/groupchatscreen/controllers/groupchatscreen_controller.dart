@@ -45,7 +45,7 @@ class GroupchatscreenController extends GetxController {
               type: msg['type'],
               sender: msg['senderName'],
               userId: msg['userId']));
-          update(['chat']);
+              update(['chat']);
         }
 
       });
